@@ -1,0 +1,288 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #fff;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Raleway', sans-serif;
+}
+
+header {
+    margin: 0 auto;
+    font-size: 0;
+    padding: 10px 20px;
+    text-align: center;
+    background: white;
+    min-width: 400px;
+}
+
+header *{
+    display: inline-block;
+    font-size: initial;
+}
+
+header img {
+    height: 25px;
+    vertical-align: middle;
+}
+
+header h1 {
+    font-size: 30px;
+    vertical-align: middle;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: #4d4d4d;
+}
+
+header div { 
+    height: 25px;
+    width: 2px;
+    vertical-align: middle;
+    background: #ebebeb;
+    margin: 0 20px;
+}
+
+header hr {
+    display: block;
+    border: none;
+    height: 3px;
+    background: #F6BF49;
+    margin: 0;
+    display: none;
+}
+
+main {
+    min-width: 400px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 0;
+    display: block;
+    margin-bottom: 100px;
+}
+
+#lasers {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+}
+
+#queue {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    clear: both;
+    padding-top: 10px;
+}
+
+#toolbar {
+	background: #f0f0f0;
+    font-size: 0;
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    width: calc(100%);
+    left: 0;
+}
+
+#toolbar span {
+    display: block;
+    padding: 10px 20px;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+#toolbar button {
+	font-size: 18px;
+    height: 40px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 2px 0 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: gray;
+    background: #ffffff;
+    border-radius: 4px;
+    min-width: 60px;
+    padding: 0 10px;
+    border: none;
+}
+
+#toolbar #clear {
+    background: #ff5800;
+    color: white;
+    float: right;
+}
+
+#toolbar #advance {
+    margin-right: 10px
+}
+
+#toolbar #add {
+}
+
+.card_header {
+    border-radius: 2px;
+    padding: 1px 0;
+    margin-bottom: 10px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.card_header h2 {
+	font-size: 18px;
+    font-family: 'Raleway',sans-serif;
+    color: #4d4d4d;
+    float: left;
+    height: 20px;
+    display: inline-block;
+    margin: 0;
+}
+
+.card {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.laser_card {
+	background: white;
+    height: 200px;
+    width: calc(50% - 5px);
+}
+
+.laser_card:nth-child(1) {
+    float: left;
+}
+
+.laser_card:nth-child(2) {
+    float: right;
+    clear: both;
+}
+
+.laser_card h1 {
+    color: #4d4d4d;
+    text-align: center;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 15px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.laser_card img {
+	height: 170px;
+    display: block;
+    margin: -20px auto;
+}
+
+.unavailable img {
+	opacity: 0.5;
+    filter: grayscale(0.8)
+}
+
+.laser_card .unavailable_label {
+	display: none;
+}
+
+.unavailable .available_label{
+	display: none;
+}
+
+.unavailable .unavailable_label {
+	display: block;
+}
+
+.text_label {
+	height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    margin: -28px auto 0;
+    font-weight: 500;
+}
+
+.text_label span {
+	border-right: 2px solid #ebebeb;
+    padding-right: 10px;
+    margin-right: 5px;
+}
+
+.available_label span {
+    color: #6ac938;
+}
+
+.unavailable_label span {
+	color: #ff5800;
+}
+
+.queue_item {
+	height: 80px;
+    width: 100%;
+    background: white;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.queue_order {
+	height: 60px;
+    position: absolute;
+    margin: 0;
+    margin-top: 10px;
+    width: 40px;
+    text-align: center;
+    line-height: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    border-right: 2px solid #ebebeb;
+    color: #4d4d4d;
+}
+
+.queue_name {
+    height: 30px;
+    font-size: 28px;
+    line-height: 30px;
+    position: absolute;
+    margin-top: 17px;
+    margin-left: 62px;
+    color: #4d4d4d;
+}
+
+.queue_extra {
+	position: absolute;
+    height: 16px;
+    line-height: 16px;
+    font-size: 14px;
+    margin-left: 62px;
+    margin-top: 47px;
+    color: gray;
+}
+
+.controls_wrap {
+    float: right;
+    height: 40px;
+    margin-top: 20px;
+    margin-right: 10px;
+    line-height: 40px;
+}
+
+.controls_wrap button {
+	height: 40px;
+    width: 40px;
+    font-size: 30px;
+    border: none;
+    vertical-align: top;
+    background: none;
+}
+
+.controls_wrap .edit {
+	color: #d0d0d0;
+    font-size: 15px;
+}
+
+.move_down, .move_up {
+	color: #d0d0d0;
+}
+
+.controls_wrap .remove {
+	color: #ff5800;
+    font-size: 20px;
+}
