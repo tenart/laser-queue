@@ -79,7 +79,7 @@ main {
     position: fixed;
     z-index: 999;
     bottom: 0;
-    width: calc(100%);
+    width: 100%;
     left: 0;
 }
 
@@ -144,7 +144,8 @@ main {
 .laser_card {
 	background: white;
     height: 200px;
-    width: calc(50% - 5px);
+    /width: calc(50% - 5px);
+    width: 50%;
 }
 
 .laser_card:nth-child(1) {
