@@ -8,6 +8,18 @@
         <title>BeAM - Laser Cutter Queue</title>
     </head>
     <body>
+        <div id="add_dialog" class="card dialog">
+            <h1>NAME</h1>
+            <input class="dialog_input" id="name_input" type="text" maxlength="16" placeholder="Enter Name">
+            <button class="left_button" id="add_confirm">ADD USER <i class="fas fa-plus"></i></button>
+            <button class="close">CANCEL</button>
+        </div>
+        <div id="rename_dialog" class="card dialog">
+            <h1>EDIT NAME</h1>
+            <input class="dialog_input" id="rename_input" type="text" maxlength="16" placeholder="Enter New Name">
+            <button class="left_button" id="rename_confirm">CHANGE <i class="fas fa-pencil-alt"></i></button>
+            <button class="close">CANCEL</button>
+        </div>
         <header>
             <img src="img/logo.png">
             <div></div>

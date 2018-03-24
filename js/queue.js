@@ -22,8 +22,38 @@ $(function() {
         });
     }
     
+    function updateName(index) {
+        var child = index + 1;
+        $("#rename_dialog").show();
+        $("#rename_confirm").click(function() {
+            if( $("#rename_input").val().length > 0 ) {
+                $(".queue_item:nth-child(" + child + ")").children("h1").text($("#rename_input").val());
+            }
+            $(".dialog_input").val("");
+            $("#rename_dialog").hide();
+        })
+    }
+    
     $("#add").click(function() {
-        $("#queue_container").append(getCard("Test"));
+        $("#add_dialog").show();
+    })
+    
+    $("#add_confirm").click(function() {
+        if( $("#name_input").val().length > 0 ) {
+            $("#queue_container").append(getCard($("#name_input").val()));
+            $(".dialog_input").val("");
+            $("#add_dialog").hide();
+        }
+    })
+
+    $(".close").click(function() {
+        $(".dialog_input").val("")
+        $(".dialog").hide();
+    })
+    
+    $("#queue_container").on("click", ".edit", function() {
+        var targetIndex = $(this).parents(".queue_item").index();
+        updateName( targetIndex );
     })
     
     $("#queue_container").on("click", ".remove", function() {
