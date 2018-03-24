@@ -144,8 +144,7 @@ main {
 .laser_card {
 	background: white;
     height: 200px;
-    /width: calc(50% - 5px);
-    width: 50%;
+    width: calc(50% - 5px);
 }
 
 .laser_card:nth-child(1) {
