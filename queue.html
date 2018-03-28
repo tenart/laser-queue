@@ -17,7 +17,15 @@
         <div id="rename_dialog" class="card dialog">
             <h1>EDIT NAME</h1>
             <input class="dialog_input" id="rename_input" type="text" maxlength="16" placeholder="Enter New Name">
-            <button class="left_button" id="rename_confirm">CHANGE <i class="fas fa-pencil-alt"></i></button>
+            <button class="left_button" id="rename_confirm">RENAME <i class="fas fa-pencil-alt"></i></button>
+            <button class="close">CANCEL</button>
+        </div>
+        <div id="status_dialog" class="card dialog">
+            <h1>SET MACHINE STATUS</h1>
+            <button id="available" data-val="available" class="status_button">Available <i class="fas fa-check-circle"></i></button>
+            <button id="reserved" data-val="reserved" class="status_button">Reserved <i class="fas fa-lock"></i></button>
+            <button id="offline" data-val="offline" class="status_button">Offline <i class="fas fa-exclamation-triangle"></i></button>
+            <button class="left_button" id="status_confirm">APPLY <i class="fas fa-cog"></i></button>
             <button class="close">CANCEL</button>
         </div>
         <header>
@@ -29,7 +37,10 @@
         <main>
             <div id="toolbar">
                 <span>
-                    <button id="clear">CLEAR QUEUE <i class="fas fa-times"></i></button>
+                    <div id="bubble" class="card">
+                        <span><i class="fas fa-exclamation-circle"></i></span><span id="message">Hello World</span>
+                    </div>
+                    <button id="clear">RESET <i class="fas fa-times"></i></button>
                     <button id="advance">ADVANCE QUEUE <i class="fas fa-arrow-up"></i></button>
                     <button id="add">ADD USER <i class="fas fa-plus"></i></button>
                 </span>
@@ -38,19 +49,25 @@
                 <div class="card_header">
                     <h2><i class="fas fa-bolt"></i> LASER CUTTER STATUS</h2>
                 </div>
-                <div class="laser_card outline card">
+                <div data-status="available" class="laser_card available card">
+                    <button class="set_status"><i class="fas fa-bars"></i></button>
                     <h1>RIGHT</h1>
-                    <img src="img/laser_open.png" class="available_label">
-                    <img src="img/laser_closed.png" class="unavailable_label">
+                    <img src="img/laser_open.png" class="laser_open">
+                    <img src="img/laser_closed.png" class="laser_closed">
                     <h3 class="label available_label text_label"><span><i class="fas fa-check-circle"></i></span> Available</h3>
-                    <h3 class="label unavailable_label text_label"><span><i class="fas fa-clock"></i></span> In use by TOM N</h3>
+                    <h3 class="label reserved_label text_label"><span><i class="fas fa-lock"></i></span> Reserved</h3>
+                    <h3 class="label offline_label text_label"><span><i class="fas fa-exclamation-triangle"></i></span> Offline</h3>
+                    <h3 class="label inuse_label text_label"><span><i class="fas fa-clock"></i></span> In use by USER</h3>
                 </div>
-                <div class="laser_card outline unavailable card">
+                <div data-status="available" class="laser_card available card">
+                    <button class="set_status"><i class="fas fa-bars"></i></button>
                     <h1>LEFT</h1>
-                    <img src="img/laser_open.png" class="available_label">
-                    <img src="img/laser_closed.png" class="unavailable_label">
+                    <img src="img/laser_open.png" class="laser_open">
+                    <img src="img/laser_closed.png" class="laser_closed">
                     <h3 class="label available_label text_label"><span><i class="fas fa-check-circle"></i></span> Available</h3>
-                    <h3 class="label unavailable_label text_label"><span><i class="fas fa-clock"></i></span> In use by TOM N</h3>
+                    <h3 class="label reserved_label text_label"><span><i class="fas fa-lock"></i></span> Reserved</h3>
+                    <h3 class="label offline_label text_label"><span><i class="fas fa-exclamation-triangle"></i></span> Offline</h3>
+                    <h3 class="label inuse_label text_label"><span><i class="fas fa-clock"></i></span> In use by USER</h3>
                 </div>
             </section>
             <section id="queue">
@@ -60,8 +77,8 @@
                 <span id="queue_container">
                     <div class="queue_item card">
                         <p class="queue_order">1</p>
-                        <h1 class="queue_name">Kalleen K</h1>
-                        <small class="queue_extra">Queued at 5:23 PM</small>
+                        <h1 class="queue_name">Hello World</h1>
+                        <small class="queue_extra">Queued at 5:00 PM</small>
                         <div class="controls_wrap">
                             <button class="edit"><i class="fas fa-pencil-alt"></i></button>
                             <button class="move_up"><i class="fas fa-angle-up"></i></button>
@@ -69,44 +86,13 @@
                             <button class="remove"><i class="fas fa-times-circle"></i></button>
                         </div>
                     </div>
-                    <div class="queue_item card">
-                    <p class="queue_order">2</p>
-                    <h1 class="queue_name">Josh F</h1>
-                    <small class="queue_extra">Queued at 6:43 PM</small>
-                    <div class="controls_wrap">
-                        <button class="edit"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="move_up"><i class="fas fa-angle-up"></i></button>
-                        <button class="move_down"><i class="fas fa-angle-down"></i></button>
-                        <button class="remove"><i class="fas fa-times-circle"></i></button>
-                    </div>
-                </div>
-                    <div class="queue_item card">
-                    <p class="queue_order">3</p>
-                    <h1 class="queue_name" style="color: white">John Cena</h1>
-                    <small class="queue_extra">Queued at 6:54 PM</small>
-                    <div class="controls_wrap">
-                        <button class="edit"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="move_up"><i class="fas fa-angle-up"></i></button>
-                        <button class="move_down"><i class="fas fa-angle-down"></i></button>
-                        <button class="remove"><i class="fas fa-times-circle"></i></button>
-                    </div>
-                </div>
-                    <div class="queue_item card">
-                    <p class="queue_order">4</p>
-                    <h1 class="queue_name">Abby G</h1>
-                    <small class="queue_extra">Queued at 7:02 PM</small>
-                    <div class="controls_wrap">
-                        <button class="edit"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="move_up"><i class="fas fa-angle-up"></i></button>
-                        <button class="move_down"><i class="fas fa-angle-down"></i></button>
-                        <button class="remove"><i class="fas fa-times-circle"></i></button>
-                    </div>
-                </div>
                 </span>
             </section>
         </main>
     </body>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/jquery-swapsies.js"></script>
     <script src="js/queue.js"></script>
 </html>

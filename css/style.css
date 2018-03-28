@@ -43,15 +43,6 @@ header div {
     margin: 0 20px;
 }
 
-header hr {
-    display: block;
-    border: none;
-    height: 3px;
-    background: #F6BF49;
-    margin: 0;
-    display: none;
-}
-
 main {
     min-width: 400px;
     max-width: 800px;
@@ -104,6 +95,10 @@ main {
     border: none;
 }
 
+#toolbar button:active, .dialog button:active {
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 2px 0 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1000px rgba(0, 0, 0, 0.1);
+}
+
 #toolbar #clear {
     background: #ff5800;
     color: white;
@@ -145,6 +140,7 @@ main {
 	background: white;
     height: 200px;
     width: calc(50% - 5px);
+    overflow: visible;
 }
 
 .laser_card:nth-child(1) {
@@ -171,32 +167,16 @@ main {
     margin: -20px auto;
 }
 
-.unavailable img {
-	opacity: 0.5;
-    filter: grayscale(0.8)
-}
-
-.laser_card .unavailable_label {
-	display: none;
-}
-
-.unavailable .available_label{
-	display: none;
-}
-
-.unavailable .unavailable_label {
-	display: block;
-}
-
 .text_label {
 	height: 40px;
     line-height: 40px;
     text-align: center;
     font-size: 18px;
     display: block;
-    font-family: 'Raleway', sans-serif;
+    font-family: sans-serif;
     margin: -28px auto 0;
     font-weight: 500;
+    color: #4d4d4d;
 }
 
 .text_label span {
@@ -209,8 +189,53 @@ main {
     color: #6ac938;
 }
 
-.unavailable_label span {
+.offline_label span {
 	color: #ff5800;
+}
+
+.inuse_label span, .reserved_label span {
+    color: #F6BF49;
+}
+
+.text_label {
+    display: none;
+}
+
+img.laser_closed, img.laser_open {
+	display: none;
+}
+
+.inuse img, .offline img, .reserved img {
+	opacity: 0.5;
+    filter: grayscale(0.8)
+}
+
+.inuse .laser_closed, .reserved .laser_closed, .offline .laser_closed {
+	display: block;
+}
+
+.available .laser_open {
+	display: block;
+}
+
+.inuse .inuse_label {
+	display: block;
+}
+
+.available .available_label {
+	display: block;
+}
+
+.reserved .reserved_label {
+	display: block;
+}
+
+.available .available_label {
+	display: block;
+}
+
+.offline .offline_label {
+	display: block;
 }
 
 .queue_item {
@@ -265,7 +290,7 @@ main {
     font-size: 0;
 }
 
-.controls_wrap button {
+.controls_wrap button, .laser_card button {
 	height: 40px;
     width: 40px;
     font-size: 30px;
@@ -308,12 +333,12 @@ main {
     border-bottom: 2px solid #ebebeb;
     padding-bottom: 20px;
     margin-bottom: 20px;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .dialog input {
 	font-family: 'Raleway', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     display: block;
     padding: 10px;
     width: calc(100% - 20px);
@@ -332,15 +357,60 @@ main {
     
 }
 
-#add_confirm {
-	background: #6ac938;
-    color: white;
-}
-
 .dialog .close {
     position: absolute;
     bottom: 20px;
     right: 20px;
     background: none;
     box-shadow: none;
+}
+
+#status_dialog {
+    font-size: 0;
+}
+
+.dialog .status_button {
+	width: 33%;
+    font-size: 16px;
+    box-shadow: none;
+    background: none;
+}
+
+.dialog .status_button.active {
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 2px 0 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 3px rgb(93, 180, 255);
+    background: white;
+}
+
+.laser_card button {
+    color: #d0d0d0;
+    font-size: 20px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#bubble {
+	background: white;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    position: absolute;
+    bottom: 80px;
+    padding: 10px;
+    color: #4d4d4d;
+    display: none;
+}
+
+#bubble span {
+	display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+#bubble span:nth-child(1) {
+    display: inline-block;
+    padding: 0;
+    border-right: 2px solid #ebebeb;
+    padding-right: 10px;
+    margin-right: 10px;
+    color: #F6BF49;
 }
